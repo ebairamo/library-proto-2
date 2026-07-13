@@ -9,6 +9,7 @@ service LibraryService {
   rpc CreateBook(CreateBookRequest) returns (Book);
   rpc GetBook(GetBookRequest) returns (Book);
   rpc ListBooks(ListBooksRequest) returns (ListBooksResponse);
+  rpc GetBookByName(BookName) returns (Book);
 }
 
 message Book {
@@ -17,7 +18,9 @@ message Book {
   string author = 3;
   int32 published_year = 4;
 }
-
+message BookName {
+  string name = 1;
+}
 message CreateBookRequest {
   string title = 1;
   string author = 2;
